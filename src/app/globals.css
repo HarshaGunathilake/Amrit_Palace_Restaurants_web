@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600&display=swap");
+@import "tailwindcss";
+
+:root {
+  /* Warm bone paper — brighter and higher-contrast than a flat tan, so it
+     reads as premium stationery rather than a muted beige wash. */
+  --parchment: #f5e9d4;
+  --linen: #dfc9a3;
+  --warm-stone: #b98f5e;
+  --walnut: #8a5c34;
+  /* Rich clay ink for body copy on the light ground. */
+  --espresso: #4f2f20;
+  /* Near-black used for placeholder fills and deep shadow moments. */
+  --onyx: #0b0806;
+  /* True warm char — the dramatic core of the palette. Old value (#292622)
+     was a soft grey-brown; this is a near-black that makes every accent on
+     top of it read as fire against embers. */
+  --midnight: #100b08;
+  /* Deep saturated ember/vermillion, not a muted amber — the tandoor's
+     colour, not a generic "gold accent". */
+  --saffron: #c73e17;
+
+  --background: var(--parchment);
+  --foreground: var(--midnight);
+
+  --font-display-family: "Fraunces", "Canela", "Georgia", serif;
+  --font-text-family: "Inter", "DM Sans", "Manrope", system-ui, sans-serif;
+}
+
+@theme inline {
+  --color-parchment: var(--parchment);
+  --color-linen: var(--linen);
+  --color-warm-stone: var(--warm-stone);
+  --color-walnut: var(--walnut);
+  --color-espresso: var(--espresso);
+  --color-onyx: var(--onyx);
+  --color-midnight: var(--midnight);
+  --color-saffron: var(--saffron);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --font-display: var(--font-display-family);
+  --font-text: var(--font-text-family);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-text-family);
+}
+
+.font-display {
+  font-family: var(--font-display-family);
+}
+
+.tracking-tightest {
+  letter-spacing: -0.04em;
+}
+
+/* subtle film-grain texture used behind dark sections */
+.grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.06;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* A low, wide ember glow rising from the base of a dark section — the
+   site's one recurring "heat" signature, used only at moments that should
+   read as the hottest point on the page (never as ambient decoration). */
+.ember-glow::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    120% 60% at 50% 100%,
+    color-mix(in srgb, var(--saffron) 38%, transparent) 0%,
+    transparent 62%
+  );
+}
+
+.text-reveal-mask {
+  overflow: hidden;
+  display: block;
+}
+
+::selection {
+  background: var(--saffron);
+  color: var(--midnight);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Thin, on-brand scrollbar for the phone country picker's country list. */
+.phone-country-list {
+  scrollbar-width: thin;
+  scrollbar-color: var(--saffron) transparent;
+}
+.phone-country-list::-webkit-scrollbar {
+  width: 6px;
+}
+.phone-country-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+.phone-country-list::-webkit-scrollbar-thumb {
+  background-color: var(--saffron);
+  border-radius: 999px;
+}
