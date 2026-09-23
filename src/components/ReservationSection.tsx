@@ -10,7 +10,7 @@ export default function ReservationSection() {
       <div className="absolute inset-0 opacity-40">
         <Image
           src="/media/reservation-bg.jpg"
-          alt="Candlelit table set for two"
+          alt="Table set for sharing at Uncle Yoon"
           fill
           sizes="100vw"
           className="object-cover"
@@ -29,7 +29,7 @@ export default function ReservationSection() {
           >
             Your Table
             <br />
-            Awaits
+            Awaits.
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 16 }}
@@ -38,8 +38,7 @@ export default function ReservationSection() {
             transition={{ duration: 0.8, delay: 0.15 }}
             className="mt-6 max-w-md font-sans text-base text-parchment/70"
           >
-            Join us for an evening of thoughtful cooking, warm hospitality and
-            unforgettable flavours.
+            Join us for Korean flavours, generous plates and good company.
           </motion.p>
         </div>
 

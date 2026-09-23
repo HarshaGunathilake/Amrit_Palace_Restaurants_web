@@ -11,6 +11,7 @@ export const NAV_LINKS = [
 export type Dish = {
   id: string;
   name: string[];
+  category: string;
   description: string;
   price: string;
   dietary?: string;
@@ -19,59 +20,94 @@ export type Dish = {
 
 export const SIGNATURE_DISHES: Dish[] = [
   {
-    id: "tandoori-chicken",
-    name: ["CHARRED TANDOORI", "CHICKEN"],
-    description: "Smoked yogurt, Kashmiri chilli, charred lemon",
-    price: "£24",
-    image: "/media/dish-tandoori.jpg",
+    id: "yoons-jajang",
+    name: ["YOON'S", "JAJANG"],
+    category: "Jajang Noodles",
+    description: "Black bean noodles with pork, vegetables and cucumber",
+    price: "TBC",
+    image: "/media/dish-jajang.jpg",
   },
   {
-    id: "lamb-rogan-josh",
-    name: ["SLOW LAMB", "ROGAN JOSH"],
-    description: "Kashmiri chilli, fennel, toasted spice, saffron rice",
-    price: "£29",
-    image: "/media/dish-lamb.jpg",
+    id: "rose-tteokbokki",
+    name: ["ROSE", "TTEOKBOKKI"],
+    category: "Sharing Dishes",
+    description: "Korean rice cakes with a creamy, spicy sauce",
+    price: "TBC",
+    image: "/media/dish-tteokbokki.jpg",
   },
   {
-    id: "truffle-dal",
-    name: ["BLACK DAL", "WITH TRUFFLE"],
-    description: "Twenty-four hour lentils, cream, aged ghee",
-    price: "£18",
-    dietary: "V",
-    image: "/media/dish-dal.jpg",
+    id: "korean-fried-chicken",
+    name: ["KOREAN FRIED", "CHICKEN"],
+    category: "Korean Fried Chicken",
+    description: "Crispy Korean fried chicken with signature sauces",
+    price: "TBC",
+    image: "/media/dish-friedchicken.jpg",
   },
   {
-    id: "sea-bass",
-    name: ["MALABAR", "SEA BASS"],
-    description: "Coconut, curry leaf, green mango, mustard oil",
-    price: "£31",
-    image: "/media/dish-seabass.jpg",
+    id: "beef-bibimbap",
+    name: ["BEEF", "BIBIMBAP"],
+    category: "Rice Dishes",
+    description: "Beef, vegetables, rice, sesame and a fried egg",
+    price: "TBC",
+    image: "/media/dish-bibimbap.jpg",
   },
   {
-    id: "saffron-kulfi",
-    name: ["SAFFRON", "KULFI"],
-    description: "Pistachio, cardamom, rose, honeycomb shard",
-    price: "£12",
-    dietary: "V",
-    image: "/media/dish-kulfi.jpg",
+    id: "seafood-champong",
+    name: ["SEAFOOD", "CHAMPONG"],
+    category: "Champong",
+    description: "Spicy seafood noodle soup with prawns, squid and vegetables",
+    price: "TBC",
+    image: "/media/dish-champong.jpg",
+  },
+  {
+    id: "bossam",
+    name: ["BOSSAM"],
+    category: "Main Dishes",
+    description: "Korean-style pork served with fresh accompaniments",
+    price: "TBC",
+    image: "/media/dish-bossam.jpg",
+  },
+  {
+    id: "seafood-pancake",
+    name: ["SEAFOOD", "PANCAKE"],
+    category: "Sharing Dishes",
+    description: "Korean-style savoury pancake with seafood and vegetables",
+    price: "TBC",
+    image: "/media/dish-pancake.jpg",
+  },
+  {
+    id: "ginseng-chicken-soup",
+    name: ["GINSENG CHICKEN", "SOUP"],
+    category: "Korean Soups",
+    description: "Comforting Korean chicken soup with ginseng",
+    price: "TBC",
+    image: "/media/dish-ginsengchicken.jpg",
   },
 ];
 
 export type MenuCategory =
-  | "STARTERS"
-  | "TANDOOR"
-  | "MAINS"
-  | "VEGETARIAN"
-  | "RICE & BREAD"
-  | "DESSERTS";
+  | "ENTREES"
+  | "KOREAN FRIED CHICKEN"
+  | "JAJANG NOODLES"
+  | "CHAMPONG"
+  | "RICE DISHES"
+  | "KOREAN SOUPS"
+  | "MAIN DISHES"
+  | "HOT POT"
+  | "SHARING DISHES"
+  | "DRINKS";
 
 export const MENU_CATEGORIES: MenuCategory[] = [
-  "STARTERS",
-  "TANDOOR",
-  "MAINS",
-  "VEGETARIAN",
-  "RICE & BREAD",
-  "DESSERTS",
+  "ENTREES",
+  "KOREAN FRIED CHICKEN",
+  "JAJANG NOODLES",
+  "CHAMPONG",
+  "RICE DISHES",
+  "KOREAN SOUPS",
+  "MAIN DISHES",
+  "HOT POT",
+  "SHARING DISHES",
+  "DRINKS",
 ];
 
 export type MenuItem = {
@@ -83,24 +119,26 @@ export type MenuItem = {
 };
 
 export const MENU_ITEMS: MenuItem[] = [
-  { name: "AMRIT SEEKH KEBAB", price: "£14", description: "Spiced lamb mince, charcoal grill, mint chutney", category: "STARTERS", image: "/media/dish-tandoori.jpg" },
-  { name: "CRAB & COCONUT SAMOSA", price: "£13", description: "Blue crab, curry leaf, toasted coconut, tamarind", category: "STARTERS", image: "/media/gallery-05.jpg" },
-  { name: "SMOKED AUBERGINE BHARTA", price: "£11", description: "Charred aubergine, mustard oil, crisp shallot", category: "STARTERS", image: "/media/dish-dal.jpg" },
-  { name: "TANDOORI KING PRAWN", price: "£19", description: "Ajwain, garlic, charred lime, mint yogurt", category: "TANDOOR", image: "/media/dish-seabass.jpg" },
-  { name: "PANEER TIKKA", price: "£15", description: "Smoked paneer, bell pepper, saffron marinade", category: "TANDOOR", image: "/media/dish-lamb.jpg" },
-  { name: "TANDOORI QUAIL", price: "£17", description: "Whole quail, black cardamom, roasted garlic", category: "TANDOOR", image: "/media/gallery-04.jpg" },
-  { name: "CHARRED TANDOORI CHICKEN", price: "£24", description: "Smoked yogurt, Kashmiri chilli, charred lemon", category: "MAINS", image: "/media/dish-tandoori.jpg" },
-  { name: "SLOW LAMB ROGAN JOSH", price: "£29", description: "Kashmiri chilli, fennel, toasted spice, saffron rice", category: "MAINS", image: "/media/dish-lamb.jpg" },
-  { name: "MALABAR SEA BASS", price: "£31", description: "Coconut, curry leaf, green mango, mustard oil", category: "MAINS", image: "/media/dish-seabass.jpg" },
-  { name: "BLACK DAL WITH TRUFFLE", price: "£18", description: "Twenty-four hour lentils, cream, aged ghee", category: "VEGETARIAN", image: "/media/dish-dal.jpg" },
-  { name: "MALAI KOFTA", price: "£17", description: "Paneer & cashew dumplings, saffron tomato cream", category: "VEGETARIAN", image: "/media/dish-lamb.jpg" },
-  { name: "CHARRED OKRA", price: "£14", description: "Mustard seed, curry leaf, coconut flake", category: "VEGETARIAN", image: "/media/gallery-05.jpg" },
-  { name: "SAFFRON BIRYANI", price: "£22", description: "Basmati, whole spice, crisp onion, mint raita", category: "RICE & BREAD", image: "/media/gallery-01.jpg" },
-  { name: "GARLIC NAAN", price: "£6", description: "Charcoal tandoor, roasted garlic, coriander", category: "RICE & BREAD", image: "/media/gallery-04.jpg" },
-  { name: "STEAMED BASMATI", price: "£5", description: "Whole spice, ghee", category: "RICE & BREAD", image: "/media/gallery-01.jpg" },
-  { name: "SAFFRON KULFI", price: "£12", description: "Pistachio, cardamom, rose, honeycomb shard", category: "DESSERTS", image: "/media/dish-kulfi.jpg" },
-  { name: "GULAB JAMUN", price: "£10", description: "Cardamom syrup, clotted cream", category: "DESSERTS", image: "/media/dish-kulfi.jpg" },
-  { name: "DARK CHOCOLATE & CHAI", price: "£11", description: "Spiced chai ganache, milk chocolate crumb", category: "DESSERTS", image: "/media/gallery-10.jpg" },
+  { name: "KOREAN FRIED CHICKEN WINGS", price: "TBC", description: "Crispy fried wings, signature Korean sauce", category: "ENTREES", image: "/media/dish-friedchicken.jpg" },
+  { name: "KIMCHI PANCAKE", price: "TBC", description: "Crispy pancake with fermented kimchi, spring onion", category: "ENTREES", image: "/media/gallery-05.jpg" },
+  { name: "KOREAN FRIED CHICKEN", price: "TBC", description: "Crispy Korean fried chicken with signature sauces", category: "KOREAN FRIED CHICKEN", image: "/media/dish-friedchicken.jpg" },
+  { name: "SOY GARLIC FRIED CHICKEN", price: "TBC", description: "Crispy chicken glazed in soy garlic sauce", category: "KOREAN FRIED CHICKEN", image: "/media/gallery-04.jpg" },
+  { name: "YOON'S JAJANG", price: "TBC", description: "Black bean noodles with pork, vegetables and cucumber", category: "JAJANG NOODLES", image: "/media/dish-jajang.jpg" },
+  { name: "SEAFOOD JAJANG", price: "TBC", description: "Black bean noodles with seafood and vegetables", category: "JAJANG NOODLES", image: "/media/gallery-01.jpg" },
+  { name: "SEAFOOD CHAMPONG", price: "TBC", description: "Spicy seafood noodle soup with prawns, squid and vegetables", category: "CHAMPONG", image: "/media/dish-champong.jpg" },
+  { name: "VEGETABLE CHAMPONG", price: "TBC", description: "Spicy noodle soup with fresh vegetables", category: "CHAMPONG", image: "/media/gallery-09.jpg" },
+  { name: "BEEF BIBIMBAP", price: "TBC", description: "Beef, vegetables, rice, sesame and a fried egg", category: "RICE DISHES", image: "/media/dish-bibimbap.jpg" },
+  { name: "STONE POT BIBIMBAP", price: "TBC", description: "Sizzling stone pot rice, vegetables and a fried egg", category: "RICE DISHES", image: "/media/gallery-01.jpg" },
+  { name: "GINSENG CHICKEN SOUP", price: "TBC", description: "Comforting Korean chicken soup with ginseng", category: "KOREAN SOUPS", image: "/media/dish-ginsengchicken.jpg" },
+  { name: "KIMCHI STEW", price: "TBC", description: "Warming stew with kimchi, tofu and pork", category: "KOREAN SOUPS", image: "/media/gallery-10.jpg" },
+  { name: "BOSSAM", price: "TBC", description: "Korean-style pork served with fresh accompaniments", category: "MAIN DISHES", image: "/media/dish-bossam.jpg" },
+  { name: "SPICY BRAISED SHORT RIB", price: "TBC", description: "Slow-braised short rib in a spicy Korean sauce", category: "MAIN DISHES", image: "/media/gallery-04.jpg" },
+  { name: "KOREAN ARMY STEW HOT POT", price: "TBC", description: "Shared hot pot with sausage, kimchi, noodles and vegetables", category: "HOT POT", image: "/media/gallery-06.jpg" },
+  { name: "SEAFOOD HOT POT", price: "TBC", description: "Shared hot pot with prawns, squid and vegetables", category: "HOT POT", image: "/media/gallery-09.jpg" },
+  { name: "ROSE TTEOKBOKKI", price: "TBC", description: "Korean rice cakes with a creamy, spicy sauce", category: "SHARING DISHES", image: "/media/dish-tteokbokki.jpg" },
+  { name: "SEAFOOD PANCAKE", price: "TBC", description: "Korean-style savoury pancake with seafood and vegetables", category: "SHARING DISHES", image: "/media/dish-pancake.jpg" },
+  { name: "KOREAN BARLEY TEA", price: "TBC", description: "Roasted barley tea, served hot or cold", category: "DRINKS", image: "/media/gallery-08.jpg" },
+  { name: "SOFT DRINKS", price: "TBC", description: "A selection of soft drinks", category: "DRINKS", image: "/media/gallery-07.jpg" },
 ];
 
 export type GalleryImage = {
@@ -111,15 +149,15 @@ export type GalleryImage = {
 
 export const GALLERY_IMAGES: GalleryImage[] = [
   { src: "/media/gallery-01.jpg", alt: "The dining room at dusk", size: "landscape" },
-  { src: "/media/gallery-02.jpg", alt: "Charred tandoori chicken, close detail", size: "portrait" },
+  { src: "/media/gallery-02.jpg", alt: "Korean fried chicken, close detail", size: "portrait" },
   { src: "/media/gallery-03.jpg", alt: "Hand-finished table setting", size: "square" },
-  { src: "/media/gallery-04.jpg", alt: "The tandoor at full heat", size: "portrait" },
-  { src: "/media/gallery-05.jpg", alt: "Spice trays before service", size: "square" },
+  { src: "/media/gallery-04.jpg", alt: "Sizzling hot pot at full heat", size: "portrait" },
+  { src: "/media/gallery-05.jpg", alt: "Banchan and sharing plates before service", size: "square" },
   { src: "/media/gallery-06.jpg", alt: "The dining room, full width", size: "wide" },
-  { src: "/media/gallery-07.jpg", alt: "Pouring wine table-side", size: "portrait" },
+  { src: "/media/gallery-07.jpg", alt: "Pouring tea table-side", size: "portrait" },
   { src: "/media/gallery-08.jpg", alt: "Facade at night", size: "landscape" },
-  { src: "/media/gallery-09.jpg", alt: "Plating the sea bass", size: "square" },
-  { src: "/media/gallery-10.jpg", alt: "Candlelight detail", size: "portrait" },
+  { src: "/media/gallery-09.jpg", alt: "Plating the seafood champong", size: "square" },
+  { src: "/media/gallery-10.jpg", alt: "Steam rising from the hot pot", size: "portrait" },
 ];
 
 export type Review = {
@@ -129,44 +167,77 @@ export type Review = {
   date: string;
 };
 
+// Placeholder sample reviews for the demo build — swap these out for real
+// verified guest reviews before launch. Reviews.tsx renders a "coming soon"
+// placeholder automatically whenever this array is empty.
 export const REVIEWS: Review[] = [
-  { quote: "An extraordinary dining experience. Every dish felt intentional.", name: "SOPHIA M.", platform: "GOOGLE", date: "AUGUST 2026" },
-  { quote: "The tandoori chicken alone is worth the flight back to Galle.", name: "DANIEL R.", platform: "TRIPADVISOR", date: "JULY 2026" },
-  { quote: "Warm, unhurried, precise. This is hospitality done properly.", name: "AISHA K.", platform: "GOOGLE", date: "JUNE 2026" },
-  { quote: "A room that understands restraint. The lamb rogan josh is unforgettable.", name: "THOMAS L.", platform: "GOOGLE", date: "MAY 2026" },
-  { quote: "Booked for an anniversary, already planning the next visit.", name: "PRIYA N.", platform: "TRIPADVISOR", date: "APRIL 2026" },
+  {
+    quote:
+      "The jajang was rich and glossy, exactly how I remember it from Seoul. Portions are generous and made for sharing.",
+    name: "Sarah M.",
+    platform: "Google",
+    date: "Aug 2026",
+  },
+  {
+    quote:
+      "Booked a table for six and the whole spread — fried chicken, tteokbokki, bibimbap — landed at once, piping hot. Will be back.",
+    name: "David L.",
+    platform: "OpenTable",
+    date: "Jul 2026",
+  },
+  {
+    quote:
+      "Cozy room, warm service, and the kind of comfort food that makes you linger over the last bite of rice.",
+    name: "Priya R.",
+    platform: "Google",
+    date: "Jul 2026",
+  },
+  {
+    quote:
+      "Our go-to spot on Russell Street now. The bossam is unreal and the staff remember our order every time.",
+    name: "Jason T.",
+    platform: "TripAdvisor",
+    date: "Jun 2026",
+  },
+  {
+    quote:
+      "Best Korean fried chicken in Melbourne, hands down. Crispy, not too sweet, and the banchan keeps coming.",
+    name: "Min-jun K.",
+    platform: "Google",
+    date: "May 2026",
+  },
+  {
+    quote:
+      "Took my parents here for their anniversary — the sharing-plate format was perfect and the room felt intimate without being stuffy.",
+    name: "Chloe W.",
+    platform: "OpenTable",
+    date: "Apr 2026",
+  },
 ];
-
-export const RATING_SUMMARY = {
-  score: "4.9 / 5",
-  label: "EXCELLENT",
-  count: "based on 640+ guest reviews",
-};
 
 export type FaqItem = { question: string; answer: string };
 
 export const FAQ_ITEMS: FaqItem[] = [
-  { question: "Do you accept walk-ins?", answer: "We hold a small number of tables for walk-ins each evening, though reservations are strongly recommended, particularly Friday through Sunday." },
-  { question: "What is your cancellation policy?", answer: "We ask for at least 24 hours' notice. Parties of six or more require 48 hours' notice to release the table without charge." },
-  { question: "Do you accommodate dietary requirements?", answer: "Yes. Please note any allergies or dietary needs when booking and our kitchen will prepare accordingly." },
-  { question: "Is there a dress code?", answer: "Smart casual. We simply ask that guests dress in a way that matches the evening we're trying to create." },
-  { question: "Do you offer private dining?", answer: "Our private room seats up to fourteen guests, with a tasting menu built around your evening. Enquire via the contact section." },
-  { question: "Do you accommodate large groups?", answer: "Groups of up to twelve can be seated in the main room; larger parties are welcomed in our private dining room." },
-  { question: "Is parking available?", answer: "Limited on-site parking is available, with additional public parking a short walk from the restaurant." },
+  { question: "Do I need a reservation?", answer: "Walk-ins are welcome, though reservations are recommended, particularly in the evenings and on weekends." },
+  { question: "Do you accommodate groups?", answer: "Groups of up to twelve can be seated in the main dining room. For larger parties, please contact us directly to discuss options." },
+  { question: "Do you offer vegetarian options?", answer: "Yes. Several dishes on our menu are vegetarian, and our kitchen is happy to talk you through the options when you book." },
+  { question: "Do you offer takeaway?", answer: "Yes, takeaway is available. Simply call us on +61 406 824 200 to place an order." },
+  { question: "Where are you located?", answer: "205–207 Russell St, Melbourne VIC 3000, Australia — in the heart of the CBD." },
+  { question: "What are your opening hours?", answer: "We're open every day, 12:00 PM to 10:00 PM." },
+  { question: "Do you accommodate dietary requirements?", answer: "Yes. Please note any allergies or dietary needs when booking and our kitchen will do its best to accommodate." },
 ];
 
 export const RESERVATION_TIMES = [
-  "6:30 PM",
-  "7:00 PM",
-  "7:30 PM",
+  "12:00 PM",
+  "2:00 PM",
+  "4:00 PM",
+  "6:00 PM",
   "8:00 PM",
-  "8:30 PM",
 ] as const;
 
 export const SEATING_PREFERENCES = [
   "No preference",
   "Main dining room",
-  "Private dining room",
   "By the window",
 ] as const;
 
@@ -179,9 +250,12 @@ export type MealPeriod = {
   endMinutes: number;
 };
 
+// Uncle Yoon is open continuously, 12:00 PM to 10:00 PM every day. These two
+// periods are adjacent (no gap) so the existing Lunch/Dinner toggle still
+// works while honestly covering the full service window.
 export const MEAL_PERIODS: MealPeriod[] = [
-  { id: "lunch", label: "Lunch", hours: "12:00 PM – 3:00 PM", startMinutes: 12 * 60, endMinutes: 15 * 60 },
-  { id: "dinner", label: "Dinner", hours: "5:30 PM – 11:00 PM", startMinutes: 17 * 60 + 30, endMinutes: 23 * 60 },
+  { id: "lunch", label: "Lunch", hours: "12:00 PM – 4:00 PM", startMinutes: 12 * 60, endMinutes: 16 * 60 },
+  { id: "dinner", label: "Dinner", hours: "4:00 PM – 10:00 PM", startMinutes: 16 * 60, endMinutes: 22 * 60 },
 ];
 
 export type TimeSlot = { hour12: string; minute: string; ampm: "AM" | "PM"; totalMinutes: number };
@@ -201,10 +275,10 @@ export function getTimeSlots(period: MealPeriod, stepMinutes = 30): TimeSlot[] {
 
 export type CountryCode = { name: string; dial: string; iso2: string };
 
-// Sri Lanka is listed first as the restaurant's home country / form default;
+// Australia is listed first as the restaurant's home country / form default;
 // everything else follows in alphabetical order, as in a standard country picker.
 export const COUNTRY_CODES: CountryCode[] = [
-  { name: "Sri Lanka", dial: "+94", iso2: "LK" },
+  { name: "Australia", dial: "+61", iso2: "AU" },
   { name: "Afghanistan", dial: "+93", iso2: "AF" },
   { name: "Albania", dial: "+355", iso2: "AL" },
   { name: "Algeria", dial: "+213", iso2: "DZ" },
@@ -216,7 +290,6 @@ export const COUNTRY_CODES: CountryCode[] = [
   { name: "Argentina", dial: "+54", iso2: "AR" },
   { name: "Armenia", dial: "+374", iso2: "AM" },
   { name: "Aruba", dial: "+297", iso2: "AW" },
-  { name: "Australia", dial: "+61", iso2: "AU" },
   { name: "Austria", dial: "+43", iso2: "AT" },
   { name: "Azerbaijan", dial: "+994", iso2: "AZ" },
   { name: "Bahamas", dial: "+1", iso2: "BS" },
@@ -378,6 +451,7 @@ export const COUNTRY_CODES: CountryCode[] = [
   { name: "South Korea", dial: "+82", iso2: "KR" },
   { name: "South Sudan", dial: "+211", iso2: "SS" },
   { name: "Spain", dial: "+34", iso2: "ES" },
+  { name: "Sri Lanka", dial: "+94", iso2: "LK" },
   { name: "Sudan", dial: "+249", iso2: "SD" },
   { name: "Suriname", dial: "+597", iso2: "SR" },
   { name: "Sweden", dial: "+46", iso2: "SE" },

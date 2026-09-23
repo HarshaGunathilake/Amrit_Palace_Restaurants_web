@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { ChevronDown } from "lucide-react";
-import { COUNTRY_CODES, MEAL_PERIODS, getTimeSlots, type MealPeriod } from "@/lib/data";
+import { COUNTRY_CODES, MEAL_PERIODS, SEATING_PREFERENCES, getTimeSlots, type MealPeriod } from "@/lib/data";
 import PhoneCountrySelect from "./PhoneCountrySelect";
 
 const inputClass =
@@ -22,6 +22,7 @@ export default function ReservationForm() {
   const [ampm, setAmpm] = useState<"AM" | "PM">("PM");
   const [countryIso2, setCountryIso2] = useState(COUNTRY_CODES[0].iso2);
   const [guests, setGuests] = useState("2");
+  const [seating, setSeating] = useState<string>(SEATING_PREFERENCES[0]);
   const [submitted, setSubmitted] = useState(false);
 
   const activePeriod = MEAL_PERIODS.find((m) => m.id === meal)!;
@@ -234,7 +235,7 @@ export default function ReservationForm() {
             </p>
           </div>
 
-          <label className="flex flex-col gap-2 sm:col-span-2">
+          <label className="flex flex-col gap-2">
             <span className={labelClass}>Number of Guests</span>
             <div className="relative">
               <select
@@ -259,6 +260,28 @@ export default function ReservationForm() {
             </div>
           </label>
 
+          <label className="flex flex-col gap-2">
+            <span className={labelClass}>Seating Preference</span>
+            <div className="relative">
+              <select
+                value={seating}
+                onChange={(e) => setSeating(e.target.value)}
+                className={`${inputClass} appearance-none pr-8`}
+              >
+                {SEATING_PREFERENCES.map((pref) => (
+                  <option key={pref} value={pref} className="text-midnight">
+                    {pref}
+                  </option>
+                ))}
+              </select>
+              <ChevronDown
+                size={14}
+                strokeWidth={1.5}
+                className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-parchment/50"
+              />
+            </div>
+          </label>
+
           <label className="flex flex-col gap-2 sm:col-span-2">
             <span className={labelClass}>Special Requests (Optional)</span>
             <textarea
@@ -271,7 +294,7 @@ export default function ReservationForm() {
 
         <button
           type="submit"
-          className="mt-10 w-full border border-saffron bg-saffron py-4 font-sans text-xs tracking-[0.2em] text-midnight uppercase transition-all duration-400 hover:bg-transparent hover:text-parchment sm:w-auto sm:px-10"
+          className="mt-10 w-full rounded-full border border-korean-red bg-korean-red py-4 font-sans text-xs tracking-[0.2em] text-parchment uppercase transition-all duration-400 hover:bg-transparent hover:text-parchment sm:w-auto sm:px-10"
         >
           Submit Reservation
         </button>

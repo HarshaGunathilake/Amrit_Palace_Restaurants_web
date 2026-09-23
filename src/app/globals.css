@@ -1,30 +1,36 @@
-@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
 
 :root {
-  /* Warm bone paper — brighter and higher-contrast than a flat tan, so it
-     reads as premium stationery rather than a muted beige wash. */
-  --parchment: #f5e9d4;
-  --linen: #dfc9a3;
-  --warm-stone: #b98f5e;
-  --walnut: #8a5c34;
-  /* Rich clay ink for body copy on the light ground. */
-  --espresso: #4f2f20;
-  /* Near-black used for placeholder fills and deep shadow moments. */
-  --onyx: #0b0806;
-  /* True warm char — the dramatic core of the palette. Old value (#292622)
-     was a soft grey-brown; this is a near-black that makes every accent on
-     top of it read as fire against embers. */
-  --midnight: #100b08;
-  /* Deep saturated ember/vermillion, not a muted amber — the tandoor's
-     colour, not a generic "gold accent". */
-  --saffron: #c73e17;
+  /* Uncle Yoon brand palette — warm ivory / stone / espresso as the primary
+     environment, with copper as the everyday accent and Korean red /
+     burgundy reserved for sparing, high-impact moments only. */
+  --parchment: #f4efe7; /* Warm Ivory */
+  --linen: #ded2c3; /* Soft Sand */
+  --warm-stone: #b9aa99; /* Warm Stone */
+  --walnut: #b8754b; /* Copper — the everyday accent */
+  --off-white: #fbf9f5;
+  /* Espresso ink for body copy on the light ground. */
+  --espresso: #292522;
+  /* Charcoal used for deep fills and dark-section text. */
+  --onyx: #1d1b19;
+  /* Charcoal — the dark section background (warm near-black, not a flat
+     grey), replacing the old near-black "midnight". */
+  --midnight: #1d1b19;
+  /* Copper remains the general accent (buttons, underlines, active states)
+     — kept close to the old "saffron" role so every existing utility class
+     retints automatically. */
+  --saffron: #b8754b;
+  /* Korean red / deep burgundy — used sparingly, only for a handful of
+     deliberate brand moments (never as the default accent). */
+  --korean-red: #8d302a;
+  --burgundy: #6b2927;
 
   --background: var(--parchment);
   --foreground: var(--midnight);
 
-  --font-display-family: "Fraunces", "Canela", "Georgia", serif;
-  --font-text-family: "Inter", "DM Sans", "Manrope", system-ui, sans-serif;
+  --font-display-family: "Playfair Display", "Cormorant Garamond", "Georgia", serif;
+  --font-text-family: "Manrope", "Inter", system-ui, sans-serif;
 }
 
 @theme inline {
@@ -32,10 +38,13 @@
   --color-linen: var(--linen);
   --color-warm-stone: var(--warm-stone);
   --color-walnut: var(--walnut);
+  --color-off-white: var(--off-white);
   --color-espresso: var(--espresso);
   --color-onyx: var(--onyx);
   --color-midnight: var(--midnight);
   --color-saffron: var(--saffron);
+  --color-korean-red: var(--korean-red);
+  --color-burgundy: var(--burgundy);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 

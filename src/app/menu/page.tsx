@@ -5,9 +5,9 @@ import FullMenuHeader from "@/components/FullMenuHeader";
 import FullMenuList from "@/components/FullMenuList";
 
 export const metadata: Metadata = {
-  title: "The Full Menu, Amrit Palace",
+  title: "The Full Menu, Uncle Yoon Korean Restaurant",
   description:
-    "The complete à la carte menu at Amrit Palace: starters, tandoor, mains, vegetarian, rice and bread, and desserts.",
+    "The complete menu at Uncle Yoon Korean Restaurant: entrees, Korean fried chicken, jajang noodles, champong, rice dishes, Korean soups, main dishes, hot pot, sharing dishes and drinks.",
 };
 
 export default function MenuPage() {
